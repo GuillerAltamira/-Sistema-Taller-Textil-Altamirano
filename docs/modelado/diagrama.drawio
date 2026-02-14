@@ -1,1 +1,118 @@
-Diagrama aqui
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="TallerTextilDB">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- CLIENTE -->
+        <mxCell id="cliente" value="Cliente
+-------------------------
+IdCliente (PK)
+Nombre
+Telefono" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="350" width="220" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- PEDIDO -->
+        <mxCell id="pedido" value="Pedido
+-------------------------
+IdPedido (PK)
+IdCliente (FK)
+TipoPrenda
+Cantidad
+FechaRegistro
+FechaEntrega
+Estado
+PrecioUnitario
+Total" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="300" width="250" height="220" as="geometry"/>
+        </mxCell>
+
+        <!-- PRODUCCION -->
+        <mxCell id="produccion" value="Produccion
+-------------------------
+IdProduccion (PK)
+IdPedido (FK)
+IdCosturera (FK)
+CantidadTerminada
+FechaInicio
+FechaFin
+Estado
+Observacion" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="280" width="260" height="240" as="geometry"/>
+        </mxCell>
+
+        <!-- COSTURERA -->
+        <mxCell id="costurera" value="Costurera
+-------------------------
+IdCosturera (PK)
+Nombre
+Telefono" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="580" width="220" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- TELA -->
+        <mxCell id="tela" value="Tela
+-------------------------
+IdTela (PK)
+Tipo
+Color
+PrecioMetros
+FechaIngreso" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="350" width="220" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- CONSUMO TELA -->
+        <mxCell id="consumo" value="ConsumoTela
+-------------------------
+IdConsumo (PK)
+IdPedido (FK)
+IdTela (FK)
+MetrosUsados
+FechaUso" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="100" width="250" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- MOVIMIENTO FINANCIERO -->
+        <mxCell id="movimiento" value="MovimientoFinanciero
+-------------------------
+IdMovimiento (PK)
+IdPedido (FK)
+Tipo (Ingreso/Gasto)
+Monto
+Fecha
+Descripcion" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="50" width="260" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- RELACIONES -->
+        <mxCell id="rel1" style="endArrow=block;" edge="1" parent="1" source="cliente" target="pedido">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel2" style="endArrow=block;" edge="1" parent="1" source="pedido" target="produccion">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel3" style="endArrow=block;" edge="1" parent="1" source="costurera" target="produccion">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel4" style="endArrow=block;" edge="1" parent="1" source="pedido" target="movimiento">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel5" style="endArrow=block;" edge="1" parent="1" source="pedido" target="consumo">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="rel6" style="endArrow=block;" edge="1" parent="1" source="tela" target="consumo">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
